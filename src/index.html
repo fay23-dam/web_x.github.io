@@ -3,177 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Card Slider Example</title>
     <link href="output.css" rel="stylesheet">
+    <style>
+        .card {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            max-width: 180px;
+            
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 12px;
+            min-height: 100px;
+        }
+        .card-content h3 {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .card-content p {
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            gap: 24px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 160px;
+            scroll-snap-align: start;
+        }
+        .carousel-wrapper {
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #f3f4f6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button.prev {
+            left: 0;
+        }
+
+        .nav-button.next {
+            right: 0;
+        }
+
+        .nav-button svg {
+            width: 20px;
+            height: 20px;
+            color: #374151;
+        }
+    </style>
 </head>
-<body class="bg-green-500 font-sans">
+<body class="bg-gray-100">
     <!-- Header -->
-    <header class="bg-green-500 w-full">
-        <div class="container mx-auto px-4 py-6 max-w-screen-xl"> <!-- Changed max-w-screen-lg to max-w-screen-xl for more space -->
-            <div class="flex justify-between items-center">
-                <a href="#" class="text-white font-bold text-2xl">LOGO</a>
-                <!-- Hamburger Button (Visible on Small Screens) -->
-                <button id="hamburgerButton" class="text-white md:hidden focus:outline-none" onclick="toggleMenu()">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-                <!-- Navigation Menu (Visible on Larger Screens) -->
-                <nav id="navMenu" class="hidden md:flex md:space-x-12 lg:space-x-6"> <!-- Increased space-x values -->
-                    <a href="#" class="text-white hover:text-gray-300 font-bold text-sm lg:text-base whitespace-nowrap">HOME</a>
-                    <a href="#" class="text-white hover:text-gray-300 font-bold text-sm lg:text-base whitespace-nowrap">ULASAN</a>
-                    <a href="#" class="text-white hover:text-gray-300 font-bold text-sm lg:text-base whitespace-nowrap">CERPEN</a>
-                    <a href="#" class="text-white hover:text-gray-300 font-bold text-sm lg:text-base whitespace-nowrap">PUISI</a>
-                    <a href="#" class="text-white hover:text-gray-300 font-bold text-sm lg:text-base whitespace-nowrap">TERJEMAHAN</a>
-                    <a href="#" class="text-white hover:text-gray-300 font-bold text-sm lg:text-base whitespace-nowrap">BINCANG BUKU</a>
-                    <a href="#" class="text-white hover:text-gray-300 font-bold text-sm lg:text-base whitespace-nowrap">SEKITAR KITA</a>
-                    <a href="#" class="text-white hover:text-gray-300 font-bold text-sm lg:text-base whitespace-nowrap">JANGKA</a>
-                    <a href="#" class="text-white hover:text-gray-300 font-bold text-sm lg:text-base whitespace-nowrap">PENULIS</a>
-                </nav>
-            </div>
-            <!-- Mobile Navigation Menu -->
-            <nav id="mobileMenu" class="flex flex-col space-y-4 mt-4 md:hidden hidden">
-                <a href="#" class="text-white hover:text-gray-300 font-bold">HOME</a>
-                <a href="#" class="text-white hover:text-gray-300 font-bold">ULASAN</a>
-                <a href="#" class="text-white hover:text-gray-300 font-bold">CERPEN</a>
-                <a href="#" class="text-white hover:text-gray-300 font-bold">PUISI</a>
-                <a href="#" class="text-white hover:text-gray-300 font-bold">TERJEMAHAN</a>
-                <a href="#" class="text-white hover:text-gray-300 font-bold">BINCANG BUKU</a>
-                <a href="#" class="text-white hover:text-gray-300 font-bold">SEKITAR KITA</a>
-                <a href="#" class="text-white hover:text-gray-300 font-bold">JANGKA</a>
-                <a href="#" class="text-white hover:text-gray-300 font-bold">PENULIS</a>
-            </nav>
-        </div>
-    </header>
+    <div id="nav-placeholder"></div>
 
-    <!-- Rest of the content remains the same -->
     <main class="container mx-auto px-4 py-12 max-w-screen-lg">
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/2">
-                <img src="https://placehold.co/600x400" alt="Image" class="w-full h-auto object-cover rounded-lg">
-            </div>
-            <div class="md:w-1/2 flex flex-col justify-center">
-                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Nama Brand</h1>
-                <p class="text-lg md:text-xl text-white mb-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, veritatis veniam? Tempora similique doloribus quisquam.</p>
-                <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded transition duration-200">
-                    Read More
-                </button>
-            </div>
+        <h2 class="text-2xl text-black mt-8 font-bold">CERPEN</h2>
+        <div class="carousel-wrapper">
+            <!-- Previous button -->
+            <button class="nav-button prev" id="cerpen-prev-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            <div class="carousel-container" id="cerpen-carousel">
+                <!-- Item 1 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 1">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 1</h3>
+                            <p class="text-gray-600">Description for item 1.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 2">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 2</h3>
+                            <p class="text-gray-600">Description for item 2.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 3">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 3</h3>
+                            <p class="text-gray-600">Description for item 3.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 4">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 4</h3>
+                            <p class="text-gray-600">Description for item 4.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 5">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 5</h3>
+                            <p class="text-gray-600">Description for item 5.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 5">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 5</h3>
+                            <p class="text-gray-600">Description for item 5.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="carousel-item">
+    <div class="card flex flex-col items-center justify-center bg-gray-100 hover:bg-gray-500" style="height: 340px;"> <!-- Menyesuaikan total height card lain (240px img + 100px content) -->
+        <div class="card-content text-center">
+            <span onclick="window.location.href='home.html'" class="text-4xl mb-4 block">→</span>
+            <h3 class="text-lg font-semibold text-gray-700">See All</h3>
         </div>
-        <!-- Main Container -->
-    <div class="container mx-auto py-8 flex flex-col lg:flex-row lg:space-x-8">
-        
-        <!-- Main Content Area -->
-        <div class="w-full lg:w-2/3 space-y-6">
-            <!-- Card 1 -->
-            <div class="flex bg-white rounded-lg shadow-md overflow-hidden flex-col md:flex-row">
-                <img src="https://placehold.co/300x300" class=" object-cover w-full md:w-1/3" alt="Card Image">
-                <div class="p-4 flex flex-col justify-between">
-                    <a href="home.html" class="hover:text-green-600"><h2 class="text-xl font-bold">Judul / Title</h2></a>
-                    <span class="text-teal-600 font-semibold">Kategori</span>
-                    <p class="text-gray-700 text-base mt-2 text-justify">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic cum porro quas quam, ullam reiciendis dolores dolorem corporis ipsa odit?
-                    </p>
-                    <a href="home.html" class="text-teal-600 mt-4">Selengkapnya ... |</a>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://placehold.co/300x300" class="w-full md:w-1/3 object-cover" alt="Card Image">
-                <div class="p-4 flex flex-col justify-between">
-                    <a href="home.html" class="hover:text-green-600"><h2 class="text-xl font-bold">Judul / Title</h2></a>
-                    <span class="text-teal-600 font-semibold">Kategori</span>
-                    <p class="text-gray-700 text-base mt-2 text-justify">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro ipsum animi enim nam et!
-                    </p>
-                    <a href="home.html" class="text-teal-600 mt-4">Selengkapnya ... |</a>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://placehold.co/300x300" class="w-full md:w-1/3 object-cover" alt="Card Image">
-                <div class="p-4 flex flex-col justify-between">
-                    <a href="home.html" class="hover:text-green-600"><h2 class="text-xl font-bold">Judul / Title</h2></a>
-                    <span class="text-teal-600 font-semibold">Kategori</span>
-                    <p class="text-gray-700 text-base mt-2 text-justify">
-                        “Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate sequi exercitationem ratione suscipit voluptate corrupti error minima vero facilis, tempore quae fugiat veniam expedita animi.”
-                    </p>
-                    <a href="home.html" class="text-teal-600 mt-4">Selengkapnya ... |</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Sidebar Area -->
-        <div class="w-full lg:w-1/3 space-y-6 mt-8 lg:mt-0">
-            <!-- Search Box -->
-            <div class="bg-white p-4 rounded-lg shadow-md">
-                <input type="text" placeholder="Search" class="w-full px-3 py-2 border border-gray-300 rounded">
-                <button class="w-full bg-teal-600 text-white py-2 mt-2 rounded hover:bg-teal-700">SEARCH</button>
-            </div>
-
-            <!-- Additional Card Example -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://placehold.co/300x150" class="w-full object-cover" alt="Sidebar Image">
-                <div class="p-4">
-                    <h3 class="text-lg font-bold">Judul SideBar</h3>
-                    <p class="text-gray-700 text-sm mt-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nihil? Beatae, suscipit.</p>
-                </div>
-            </div>
-
-            <!-- Another Sidebar Item -->
-            <div class="bg-white rounded-lg shadow-md p-4">
-                <h3 class="text-lg font-bold">Ruang Baca</h3>
-                <p class="text-gray-700 text-sm mt-2">Tempat untuk diskusi buku dan literatur lainnya.</p>
-            </div>
-        </div>
-
     </div>
-         
+</div>
+            </div>
 
+            <!-- Next button -->
+            <button class="nav-button next" id="cerpen-next-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+        <h2 class="text-2xl text-black mt-8 font-bold">PUISI</h2>
+        <div class="carousel-wrapper">
+            <!-- Previous button -->
+            <button class="nav-button prev" id="puisi-prev-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            <div class="carousel-container" id="puisi-carousel">
+                <!-- Item 1 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 1">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 1</h3>
+                            <p class="text-gray-600">Description for item 1.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 2">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 2</h3>
+                            <p class="text-gray-600">Description for item 2.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 3">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 3</h3>
+                            <p class="text-gray-600">Description for item 3.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 4">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 4</h3>
+                            <p class="text-gray-600">Description for item 4.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 5">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 5</h3>
+                            <p class="text-gray-600">Description for item 5.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="../Aesthetic girl pfp.jpeg" alt="Title 5">
+                        <div class="card-content">
+                            <h3 class="text-lg font-bold">Title 5</h3>
+                            <p class="text-gray-600">Description for item 5.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="carousel-item">
+    <div class="card flex flex-col items-center justify-center bg-gray-100 hover:bg-gray-500" style="height: 340px;"> <!-- Menyesuaikan total height card lain (240px img + 100px content) -->
+        <div class="card-content text-center">
+            <span onclick="window.location.href='home.html'" class="text-4xl mb-4 block">→</span>
+            <h3 class="text-lg font-semibold text-gray-700">See All</h3>
+        </div>
+    </div>
+</div>
+            </div>
+
+            <!-- Next button -->
+            <button class="nav-button next" id="puisi-next-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
     </main>
 
     <footer class="bg-slate-950 text-white py-8">
         <div class="container mx-auto px-4 max-w-screen-lg">
-            <!-- Social Media Section -->
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="#" class="text-white hover:text-gray-300">
-                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.48-10 10.01 0 4.99 3.66 9.12 8.43 9.88v-6.99h-2.54v-2.89h2.54v-2.2c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.89h-2.34v6.99c4.77-.77 8.43-4.89 8.43-9.88 0-5.53-4.5-10.01-10-10.01z"/></svg>
-                </a>
-                <a href="#" class="text-white hover:text-gray-300">
-                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.48-10 10.01 0 4.99 3.66 9.12 8.43 9.88v-6.99h-2.54v-2.89h2.54v-2.2c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.89h-2.34v6.99c4.77-.77 8.43-4.89 8.43-9.88 0-5.53-4.5-10.01-10-10.01z"/></svg>
-                </a>
-                <a href="#" class="text-white hover:text-gray-300">
-                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.48-10 10.01 0 4.99 3.66 9.12 8.43 9.88v-6.99h-2.54v-2.89h2.54v-2.2c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.89h-2.34v6.99c4.77-.77 8.43-4.89 8.43-9.88 0-5.53-4.5-10.01-10-10.01z"/></svg>
-                </a>
-                <!-- Add more social media icons as needed -->
-            </div>
-    
-            <!-- Logo and Author Section -->
             <div class="text-center mb-6">
                 <a href="#" class="text-white font-bold text-2xl">BACAPETRA.CO</a>
                 <p class="text-gray-300 mt-2">By: Author Name</p>
             </div>
-    
-            <!-- Additional Links Section -->
             <div class="flex justify-center space-x-8 text-sm text-gray-300">
                 <a href="#" class="hover:text-white">Privacy Policy</a>
                 <a href="#" class="hover:text-white">Terms of Service</a>
                 <a href="#" class="hover:text-white">Contact Us</a>
             </div>
-    
-            <!-- Copyright -->
             <div class="text-center mt-6">
                 <p class="text-white text-lg">© 2022 Baca Petra. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    
 
-    <script>
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
-        }
+    <!-- Add this script before closing body tag -->
+    <script src="../src/js/loadComponents.js">
+        // Hamburger menu functionality
+        
     </script>
 </body>
 </html>

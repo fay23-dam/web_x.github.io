@@ -3,41 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Detail - Baca Petra</title>
+    <title>Card Slider Example</title>
     <link href="output.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 font-sans">
-
-    <!-- Header -->
+<body class="bg-gray-100">
+    <!-- Navigation placeholder -->
     <div id="nav-placeholder"></div>
 
-    <!-- Main Content -->
+    <!-- Rest of your content -->
     <main class="container mx-auto px-4 py-12 max-w-screen-lg flex flex-col lg:flex-row gap-8">
-        <!-- Article Content -->
-        <article class="w-full lg:w-2/3 bg-white p-6 rounded-lg shadow-md">
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">Judul / Title of the News Article</h1>
-            <p class="text-gray-600 text-sm mb-6">Published on: <span>October 31, 2024</span> | By: <span>Author Name</span></p>
-            <img src="https://placehold.co/800x400" alt="Article Image" class="w-full h-auto object-cover rounded-lg mb-6">
+        <!-- Your main content -->
+        <article class="w-full lg:w-3/3 bg-white p-6 ">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Puisi</h1>
             <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quidem nulla reprehenderit, voluptatum 
                 odit quam sequi repellat distinctio ex tempora corporis labore, delectus nesciunt, quas enim ea fugit. 
                 Labore, voluptate ducimus!
             </p>
-            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. 
-                Cras venenatis euismod malesuada. Curabitur et risus vitae lacus vehicula lacinia eget ac diam.
-            </p>
-            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quasi molestiae, suscipit in corporis 
-                consequatur at rerum dolorum soluta, recusandae, voluptates adipisci aspernatur omnis. Repellat iste ab 
-                accusantium veritatis vitae.
-            </p>
+            <div class="card-article flex max-w-2xl mb-4 gap-4">
+                <!-- Image container -->
+                <!-- Image container -->
+<div class="w-2/4 h-48 me-4"> <!-- Tambahkan fixed height -->
+    <img src="../Aesthetic girl pfp.jpeg" alt="UGM Campus" class="w-full h-full object-cover object-center">
+</div>
+                
+                <!-- Content container -->
+                <div class="w-1/2 p-2">
+                    <!-- Category tag -->
+                    
+                    <!-- Title -->
+                    <h4 class="text-xl font-bold text-green-400 mb-2 hover:text-green-600">
+                        <a href="#">Hikayat Plagiarisme Dosen-Dosen UGM, Salah Satu Pelakunya Malah Menjadi Menteri Pendidikan Republik Indonesia</a>
+                    </h4>
+                    
+                    <!-- Meta information -->
+                    <div class="flex items-center text-sm text-gray-600 mb-2">
+                        <span class="mr-2">OLEH</span>
+                        <a href="#" class="font-bold text-green-600 hover:text-green-800 mr-2">MUHIDIN M. DAHLAN</a>
+                        <span class="text-gray-400">11 NOVEMBER 2024</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-gray-600 text-sm mb-4">
+                        UGM, kampus besar berkalang kontroversi. Salah satunya plagiarisme dosen, yang salah satu pelakunya menjadi Menteri Pendidikan. Ironi.
+                    </p>
+                    
+                    <!-- Read more button -->
+                    <a href="#" class="inline-block border border-gray-300 text-gray-600 text-sm px-4 py-1  hover:bg-green-600">
+                        BACA SELENGKAPNYA
+                    </a>
+                </div>
+            </div>
+            
         </article>
 
         <!-- Sidebar -->
         <aside class="w-full lg:w-1/3 space-y-6">
             <!-- Related Articles -->
-            <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="bg-white p-4">
                 <h3 class="text-xl font-semibold text-gray-800 mb-4">Related Articles</h3>
                 <ul class="space-y-4">
                     <li><a href="#" class="text-teal-600 hover:text-teal-800">Article 1 - Lorem ipsum dolor sit amet</a></li>
@@ -47,7 +70,7 @@
             </div>
 
             <!-- Tags -->
-            <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="bg-white p-4">
                 <h3 class="text-xl font-semibold text-gray-800 mb-4">Tags</h3>
                 <div class="flex flex-wrap gap-2">
                     <span class="bg-teal-500 text-white px-3 py-1 rounded-full text-sm">#literature</span>
@@ -58,8 +81,6 @@
             </div>
         </aside>
     </main>
-
-    <!-- Footer -->
     <footer class="bg-slate-950 text-white py-8">
         <div class="container mx-auto px-4 max-w-screen-lg">
             <!-- Social Media Section -->
@@ -95,6 +116,7 @@
             </div>
         </div>
     </footer>
+    <!-- Include the component loader -->
     <script src="../src/js/loadComponents.js"></script>
 </body>
 </html>
