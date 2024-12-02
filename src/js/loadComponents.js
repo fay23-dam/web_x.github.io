@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('cerpen-carousel')) {
         initializeCarousel('cerpen-carousel', 'cerpen-prev-btn', 'cerpen-next-btn');
         initializeCarousel('puisi-carousel', 'puisi-prev-btn', 'puisi-next-btn');
+        initializeCarousel('prosa-carousel', 'prosa-prev-btn', 'prosa-next-btn');
+        initializeCarousel('esai-carousel', 'esai-prev-btn', 'esai-next-btn');
     }
 }); 
 function truncateText(element, maxWords) {
@@ -82,3 +84,50 @@ const paragraphs = document.querySelectorAll('.paragraph');
 paragraphs.forEach(paragraph => {
     truncateText(paragraph, 30);
 });
+const cardsPerPage = 4; // Jumlah card per halaman
+const cards = document.querySelectorAll('.bg-white.flex.flex-row'); // Ambil semua card
+const paginationContainer = document.getElementById('pagination');
+let currentPage = 1;
+
+function renderPage(page) {
+  // Hitung indeks awal dan akhir untuk card pada halaman ini
+  const startIndex = (page - 1) * cardsPerPage;
+  const endIndex = startIndex + cardsPerPage;
+
+  // Tampilkan atau sembunyikan card sesuai halaman aktif
+  cards.forEach((card, index) => {
+    if (index >= startIndex && index < endIndex) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Perbarui tombol pagination
+  renderPagination();
+}
+
+function renderPagination() {
+  paginationContainer.innerHTML = ''; // Kosongkan kontainer tombol
+
+  // Hitung jumlah halaman
+  const totalPages = Math.ceil(cards.length / cardsPerPage);
+
+  for (let i = 1; i <= totalPages; i++) {
+    const button = document.createElement('button');
+    button.innerText = i;
+    button.className =
+      'mx-1 px-3 py-1 border rounded hover:bg-green-500 hover:text-white ' +
+      (i === currentPage
+        ? 'bg-green-500 text-white'
+        : 'bg-white text-gray-700 border-gray-300');
+    button.addEventListener('click', () => {
+      currentPage = i;
+      renderPage(currentPage);
+    });
+    paginationContainer.appendChild(button);
+  }
+}
+
+// Render halaman pertama saat memuat
+renderPage(currentPage);

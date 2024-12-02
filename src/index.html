@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card Slider Example</title>
-    <link href="output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
       .card {
         background: white;
@@ -97,10 +97,15 @@
     <div id="nav-placeholder"></div>
 
     <main class="container mx-auto px-4 py-12 max-w-screen-lg">
-      <h2 class="text-2xl text-black mt-8 font-bold">CERPEN</h2>
+      <h2 class="text-2xl text-white font-bold divide-y-2 divide-green-400">
+        <span class="bg-green-500 p-2">CERPEN</span>
+        <div class="divider"></div>
+      </h2>
+      
+
       <div class="carousel-wrapper">
         <!-- Previous button -->
-        <button class="nav-button prev" id="cerpen-prev-btn">
+        <button class="nav-button hidden md:flex prev" id="cerpen-prev-btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -197,7 +202,7 @@
         </div>
 
         <!-- Next button -->
-        <button class="nav-button next" id="cerpen-next-btn">
+        <button class="nav-button hidden md:flex next" id="cerpen-next-btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -213,10 +218,13 @@
           </svg>
         </button>
       </div>
-      <h2 class="text-2xl text-black mt-8 font-bold">PUISI</h2>
+      <h2 class="text-2xl text-white font-bold divide-y-2 divide-green-400">
+        <span class="bg-green-500 p-2">PUISI</span>
+        <div class="divider"></div>
+      </h2>
       <div class="carousel-wrapper">
         <!-- Previous button -->
-        <button class="nav-button prev" id="puisi-prev-btn">
+        <button class="nav-button hidden md:flex prev" id="puisi-prev-btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -313,7 +321,245 @@
         </div>
 
         <!-- Next button -->
-        <button class="nav-button next" id="puisi-next-btn">
+        <button class="nav-button hidden md:flex next" id="puisi-next-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+      <h2 class="text-2xl text-white font-bold divide-y-2 divide-green-400">
+        <span class="bg-green-500 p-2">PROSA</span>
+        <div class="divider"></div>
+      </h2>
+      <div class="carousel-wrapper">
+        <!-- Previous button -->
+        <button class="nav-button hidden md:flex prev" id="prosa-prev-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+
+        <div class="carousel-container" id="prosa-carousel">
+          <!-- Item 1 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 1" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 1</h3>
+                <p class="text-gray-600">Description for item 1.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 2" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 2</h3>
+                <p class="text-gray-600">Description for item 2.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 3" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 3</h3>
+                <p class="text-gray-600">Description for item 3.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 4" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 4</h3>
+                <p class="text-gray-600">Description for item 4.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 5" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 5</h3>
+                <p class="text-gray-600">Description for item 5.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 5" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 5</h3>
+                <p class="text-gray-600">Description for item 5.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="carousel-item">
+            <div
+              class="card flex flex-col items-center justify-center bg-gray-100 hover:bg-gray-500"
+              style="height: 340px"
+            >
+              <!-- Menyesuaikan total height card lain (240px img + 100px content) -->
+              <div class="card-content text-center">
+                <span
+                  onclick="window.location.href='home.html'"
+                  class="text-4xl mb-4 block"
+                  >→</span
+                >
+                <h3 class="text-lg font-semibold text-gray-700">See All</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next button -->
+        <button class="nav-button hidden md:flex next" id="prosa-next-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+      <h2 class="text-2xl text-white font-bold divide-y-2 divide-green-400">
+        <span class="bg-green-500 p-2">ESAI</span>
+        <div class="divider"></div>
+      </h2>
+      <div class="carousel-wrapper">
+        <!-- Previous button -->
+        <button class="nav-button hidden md:flex prev" id="esai-prev-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+
+        <div class="carousel-container" id="esai-carousel">
+          <!-- Item 1 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 1" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 1</h3>
+                <p class="text-gray-600">Description for item 1.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 2" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 2</h3>
+                <p class="text-gray-600">Description for item 2.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 3" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 3</h3>
+                <p class="text-gray-600">Description for item 3.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 4" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 4</h3>
+                <p class="text-gray-600">Description for item 4.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 5" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 5</h3>
+                <p class="text-gray-600">Description for item 5.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="carousel-item">
+            <div class="card">
+              <img src="../Aesthetic girl pfp.jpeg" alt="Title 5" />
+              <div class="card-content">
+                <h3 class="text-lg font-bold">Title 5</h3>
+                <p class="text-gray-600">Description for item 5.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="carousel-item">
+            <div
+              class="card flex flex-col items-center justify-center bg-gray-100 hover:bg-gray-500"
+              style="height: 340px"
+            >
+              <!-- Menyesuaikan total height card lain (240px img + 100px content) -->
+              <div class="card-content text-center">
+                <span
+                  onclick="window.location.href='home.html'"
+                  class="text-4xl mb-4 block"
+                  >→</span
+                >
+                <h3 class="text-lg font-semibold text-gray-700">See All</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next button -->
+        <button class="nav-button hidden md:flex next" id="esai-next-btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
