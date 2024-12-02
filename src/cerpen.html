@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card Slider Example</title>
-    <link href="output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/5bb81927d8.js" crossorigin="anonymous"></script>
   </head>
   <body class="bg-gray-100">
     <!-- Navigation placeholder -->
@@ -15,62 +16,151 @@
       <article class="w-full lg:w-3/3 bg-white p-6 shadow-md">
         <h1 class="text-3xl font-bold text-gray-800 mb-4">Cerpen</h1>
         <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quidem nulla reprehenderit, voluptatum odit quam sequi repellat distinctio ex tempora corporis labore, delectus nesciunt, quas enim ea fugit. Labore, voluptate ducimus!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quidem
+          nulla reprehenderit, voluptatum odit quam sequi repellat distinctio ex
+          tempora corporis labore, delectus nesciunt, quas enim ea fugit.
+          Labore, voluptate ducimus!
         </p>
-    
+
         <!-- Cards Container -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4 md:p-4">
           <!-- Card 1 -->
-          <div class="bg-white border border-gray-200 shadow-md flex flex-col md:flex-row sm:flex-row overflow-hidden h-auto md:h-64 lg:h-80 w-full sm:w-[48%] lg:w-[45%]">
-            <img src="../453603451_466207632850320_6052156421435376112_n.jpg" 
-                 alt="UGM Campus" 
-                 class="object-cover w-full md:w-1/3 h-48 md:h-full" />
-            <div class="p-4 flex flex-col justify-between flex-grow">
-              <h2 class="text-sm font-bold text-green-500 hover:text-green-700">
-                <a href="#">Hikayat Plagiarisme Dosen-Dosen UGM, Salah Satu Pelakunya Malah Menjadi Menteri Pendidikan Republik Indonesia</a>
-              </h2>
-              <div class="flex items-center text-sm text-gray-600 mt-2">
-                <span class="mr-4">oleh</span>
-                <a href="#" class="font-bold text-sm text-green-500 hover:text-green-700">MUHIDIN M. DAHLAN</a>
+          <div class="bg-white flex flex-row">
+            <img src="https://via.placeholder.com/300" alt="Thumbnail" class="w-[100px] h-auto md:w-[250px] md:h-[250px] object-cover">
+
+            <div class="p-2 flex flex-col">
+              <div>
+                <h2 class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">
+                  <a href="#">Saking Terbiasanya, Saya Sudah Nggak Heran Mendengar Kasus Kecelakaan Truk di Tangerang</a>
+                </h2>
+                <div class="flex flex-col md:flex-row mb-2 gap-2">
+                  <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                  <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                </div>
               </div>
-              <span class="text-sm text-gray-400 mt-1">11 NOVEMBER 2024</span>
-              <p class="text-sm text-gray-600 mt-2 line-clamp-3">
-                UGM, kampus besar berkalang kontroversi. Salah satunya plagiarisme dosen, yang salah satu pelakunya menjadi Menteri Pendidikan. Ironi.
-              </p>
-              <a href="#" class="mt-4 inline-block bg-green-500 text-white text-sm px-4 py-2 hover:bg-green-600">
-                BACA SELENGKAPNYA
-              </a>
+              <p  class="paragraph text-xs mb-2 hidden md:block text-gray-500">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est nemo deserunt sint tenetur magnam? Incidunt, sunt quisquam. Beatae aspernatur nisi aperiam. At cum quas odit omnis sed ratione porro error quasi? Iusto quo eligendi, nesciunt eius tempora, dicta sed perferendis blanditiis aliquid, ipsam veritatis sint?</p>
+              <a
+              href="#"
+              class=" hidden md:block border text-xs font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white"
+            >
+              BACA SELENGKAPNYA
+            </a>
             </div>
           </div>
-    
-          <!-- Card 2 -->
-          <div class="bg-white border border-gray-200 shadow-md flex flex-col md:flex-row sm:flex-row overflow-hidden h-auto md:h-64 lg:h-80 w-full sm:w-[48%] lg:w-[45%]">
-            <img src="../453603451_466207632850320_6052156421435376112_n.jpg" 
-                 alt="UGM Campus" 
-                 class="object-cover w-full md:w-1/3 h-48 md:h-full" />
-            <div class="p-4 flex flex-col justify-between flex-grow">
-              <h2 class="text-sm font-bold text-green-500 hover:text-green-700">
-                <a href="#">Hikayat Plagiarisme Dosen-Dosen UGM, Salah Satu Pelakunya Malah Menjadi Menteri Pendidikan Republik Indonesia</a>
-              </h2>
-              <div class="flex items-center text-sm text-gray-600 mt-2">
-                <span class="mr-4">oleh</span>
-                <a href="#" class="font-bold text-sm text-green-500 hover:text-green-700">MUHIDIN M. DAHLAN</a>
+          <div class="bg-white flex flex-row">
+            <img src="https://via.placeholder.com/300" alt="Thumbnail" class="w-[100px] h-auto md:w-[250px] md:h-[250px] object-cover">
+
+            <div class="p-2 flex flex-col">
+              <div>
+                <h2 class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">
+                  <a href="#">Saking Terbiasanya, Saya Sudah Nggak Heran Mendengar Kasus Kecelakaan Truk di Tangerang</a>
+                </h2>
+                <div class="flex flex-col md:flex-row mb-2 gap-2">
+                  <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                  <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                </div>
               </div>
-              <span class="text-sm text-gray-400 mt-1">11 NOVEMBER 2024</span>
-              <p class="text-sm text-gray-600 mt-2 line-clamp-3">
-                UGM, kampus besar berkalang kontroversi. Salah satunya plagiarisme dosen, yang salah satu pelakunya menjadi Menteri Pendidikan. Ironi.
-              </p>
-              <a href="#" class="mt-4 inline-block bg-green-500 text-white text-sm px-4 py-2 hover:bg-green-600">
-                BACA SELENGKAPNYA
-              </a>
+              <p  class="paragraph text-xs mb-2 hidden md:block text-gray-500">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est nemo deserunt sint tenetur magnam? Incidunt, sunt quisquam. Beatae aspernatur nisi aperiam. At cum quas odit omnis sed ratione porro error quasi? Iusto quo eligendi, nesciunt eius tempora, dicta sed perferendis blanditiis aliquid, ipsam veritatis sint?</p>
+              <a
+              href="#"
+              class=" hidden md:block border text-xs font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white"
+            >
+              BACA SELENGKAPNYA
+            </a>
             </div>
           </div>
-    
-          <!-- Repeat the same structure for other cards -->
-        </div>
+          <div class="bg-white flex flex-row">
+            <img src="https://via.placeholder.com/300" alt="Thumbnail" class="w-[100px] h-auto md:w-[250px] md:h-[250px] object-cover">
+
+            <div class="p-2 flex flex-col">
+              <div>
+                <h2 class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">
+                  <a href="#">Saking Terbiasanya, Saya Sudah Nggak Heran Mendengar Kasus Kecelakaan Truk di Tangerang</a>
+                </h2>
+                <div class="flex flex-col md:flex-row mb-2 gap-2">
+                  <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                  <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                </div>
+              </div>
+              <p  class="paragraph text-xs mb-2 hidden md:block text-gray-500">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est nemo deserunt sint tenetur magnam? Incidunt, sunt quisquam. Beatae aspernatur nisi aperiam. At cum quas odit omnis sed ratione porro error quasi? Iusto quo eligendi, nesciunt eius tempora, dicta sed perferendis blanditiis aliquid, ipsam veritatis sint?</p>
+              <a
+              href="#"
+              class=" hidden md:block border text-xs font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white"
+            >
+              BACA SELENGKAPNYA
+            </a>
+            </div>
+          </div>
+          <div class="bg-white flex flex-row">
+            <img src="https://via.placeholder.com/300" alt="Thumbnail" class="w-[100px] h-auto md:w-[250px] md:h-[250px] object-cover">
+
+            <div class="p-2 flex flex-col">
+              <div>
+                <h2 class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">
+                  <a href="#">Saking Terbiasanya, Saya Sudah Nggak Heran Mendengar Kasus Kecelakaan Truk di Tangerang</a>
+                </h2>
+                <div class="flex flex-col md:flex-row mb-2 gap-2">
+                  <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                  <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                </div>
+              </div>
+              <p  class="paragraph text-xs mb-2 hidden md:block text-gray-500">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est nemo deserunt sint tenetur magnam? Incidunt, sunt quisquam. Beatae aspernatur nisi aperiam. At cum quas odit omnis sed ratione porro error quasi? Iusto quo eligendi, nesciunt eius tempora, dicta sed perferendis blanditiis aliquid, ipsam veritatis sint?</p>
+              <a
+              href="#"
+              class=" hidden md:block border text-xs font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white"
+            >
+              BACA SELENGKAPNYA
+            </a>
+            </div>
+          </div>
+          <div class="bg-white flex flex-row">
+            <img src="https://via.placeholder.com/300" alt="Thumbnail" class="w-[100px] h-auto md:w-[250px] md:h-[250px] object-cover">
+
+            <div class="p-2 flex flex-col">
+              <div>
+                <h2 class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">
+                  <a href="#">Saking Terbiasanya, Saya Sudah Nggak Heran Mendengar Kasus Kecelakaan Truk di Tangerang</a>
+                </h2>
+                <div class="flex flex-col md:flex-row mb-2 gap-2">
+                  <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                  <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                </div>
+              </div>
+              <p  class="paragraph text-xs mb-2 hidden md:block text-gray-500">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est nemo deserunt sint tenetur magnam? Incidunt, sunt quisquam. Beatae aspernatur nisi aperiam. At cum quas odit omnis sed ratione porro error quasi? Iusto quo eligendi, nesciunt eius tempora, dicta sed perferendis blanditiis aliquid, ipsam veritatis sint?</p>
+              <a
+              href="#"
+              class=" hidden md:block border text-xs font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white"
+            >
+              BACA SELENGKAPNYA
+            </a>
+            </div>
+          </div>
+          <div class="bg-white flex flex-row">
+            <img src="https://via.placeholder.com/300" alt="Thumbnail" class="w-[100px] h-auto md:w-[250px] md:h-[250px] object-cover">
+
+            <div class="p-2 flex flex-col">
+              <div>
+                <h2 class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">
+                  <a href="#">Saking Terbiasanya, Saya Sudah Nggak Heran Mendengar Kasus Kecelakaan Truk di Tangerang</a>
+                </h2>
+                <div class="flex flex-col md:flex-row mb-2 gap-2">
+                  <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                  <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                </div>
+              </div>
+              <p  class="paragraph text-xs mb-2 hidden md:block text-gray-500">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est nemo deserunt sint tenetur magnam? Incidunt, sunt quisquam. Beatae aspernatur nisi aperiam. At cum quas odit omnis sed ratione porro error quasi? Iusto quo eligendi, nesciunt eius tempora, dicta sed perferendis blanditiis aliquid, ipsam veritatis sint?</p>
+              <a
+              href="#"
+              class=" hidden md:block border text-xs font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white"
+            >
+              BACA SELENGKAPNYA
+            </a>
+            </div>
+          </div>
+          
       </article>
     </main>
-    
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8">
       <div class="container mx-auto px-4 text-center">
@@ -78,10 +168,14 @@
         <p class="text-gray-400 mb-4">By: Author Name</p>
         <div class="flex justify-center space-x-4">
           <a href="#" class="text-white hover:text-gray-300">Privacy Policy</a>
-          <a href="#" class="text-white hover:text-gray-300">Terms of Service</a>
+          <a href="#" class="text-white hover:text-gray-300"
+            >Terms of Service</a
+          >
           <a href="#" class="text-white hover:text-gray-300">Contact Us</a>
         </div>
-        <p class="text-gray-400 mt-4">&copy; 2024 Baca Petra. All Rights Reserved.</p>
+        <p class="text-gray-400 mt-4">
+          &copy; 2024 Baca Petra. All Rights Reserved.
+        </p>
       </div>
     </footer>
 

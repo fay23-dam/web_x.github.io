@@ -68,3 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeCarousel('puisi-carousel', 'puisi-prev-btn', 'puisi-next-btn');
     }
 }); 
+function truncateText(element, maxWords) {
+    let text = element.innerText;
+    let words = text.split(' '); // Pisahkan teks menjadi array kata
+    if (words.length > maxWords) {
+        words = words.slice(0, maxWords); // Ambil hanya kata ke-30
+        element.innerText = words.join(' ') + '...'; // Gabungkan kata dan tambahkan "..."
+    }
+}
+
+// Terapkan fungsi pada semua elemen dengan kelas 'paragraph'
+const paragraphs = document.querySelectorAll('.paragraph');
+paragraphs.forEach(paragraph => {
+    truncateText(paragraph, 30);
+});

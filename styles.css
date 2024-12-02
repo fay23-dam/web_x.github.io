@@ -89,3 +89,8 @@
     height: 20px;
     color: #374151;
 }
+
+.w-cardx{
+    max-width: 100px;
+    max-height: 100px;
+}
