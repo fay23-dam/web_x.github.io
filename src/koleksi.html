@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Slider Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/5bb81927d8.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navigation placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Content -->
+    <main class="container mx-auto px-4 py-12 flex flex-col gap-12">
+        <div class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+            <h2 class="col-span-8 lg:col-span-8 lg:me-5 text-lg text-white font-bold divide-y-2 divide-green-400 mb-5">
+              <span class="bg-green-500 p-2">Koleksi</span>
+              <div class="divider"></div>
+            </h2>
+            <div class="mb-2 col-span-8 lg:col-span-4">
+              <input type="text" id="search-input" class="px-4 py-2 w-full border text-sm" placeholder="Cari judul..." oninput="searchCards()" />
+          </div>
+          </div>
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">        
+            <div class="max-w-sm overflow-hidden shadow-lg bg-white flex flex-col">
+                <img class="w-full h-25 object-contain aspect-square" src="../Dandadan.jpeg" alt="Card Image">
+                <div class="px-3 py-4">
+                    <div class="mb-2"><a href="" class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">Card Title</a></div>
+                    <div class="flex flex-col md:flex-row mb-1 gap-2">
+                        <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                        <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                    </div>
+                </div>
+                <!-- Button "Baca Selengkapnya" yang berada di paling bawah -->
+                <div class="px-3 py-2 mt-auto">
+                    <a href="#"
+                       class="hidden md:block border mt-auto text-sm font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white">
+                        BACA SELENGKAPNYA
+                    </a>
+                </div>
+            </div>
+        
+            <div class="max-w-sm overflow-hidden shadow-lg bg-white flex flex-col">
+                <img class="w-full h-25 object-contain aspect-square" src="../Dandadan.jpeg" alt="Card Image">
+                <div class="px-3 py-4">
+                    <div class="mb-2"><a href="" class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">Pengalaman Menyaksikan Langsung Party-nya Orang Palembang</a></div>
+                    <div class="flex flex-col md:flex-row mb-1 gap-2">
+                        <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                        <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                    </div>
+                </div>
+                <!-- Button "Baca Selengkapnya" yang berada di paling bawah -->
+                <div class="px-3 py-2 mt-auto">
+                    <a href="#"
+                       class="hidden md:block border mt-auto text-sm font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white">
+                        BACA SELENGKAPNYA
+                    </a>
+                </div>
+            </div>
+            <div class="max-w-sm overflow-hidden shadow-lg bg-white flex flex-col">
+                <img class="w-full h-25 object-contain aspect-square" src="../Dandadan.jpeg" alt="Card Image">
+                <div class="px-3 py-4">
+                    <div class="mb-2"><a href="" class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">Pengalaman Menyaksikan Langsung Party-nya Orang Palembang</a></div>
+                    <div class="flex flex-col md:flex-row mb-1 gap-2">
+                        <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                        <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                    </div>
+                </div>
+                <!-- Button "Baca Selengkapnya" yang berada di paling bawah -->
+                <div class="px-3 py-2 mt-auto">
+                    <a href="#"
+                       class="hidden md:block border mt-auto text-sm font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white">
+                        BACA SELENGKAPNYA
+                    </a>
+                </div>
+            </div>
+            <div class="max-w-sm overflow-hidden shadow-lg bg-white flex flex-col">
+                <img class="w-full h-25 object-contain aspect-square" src="../Dandadan.jpeg" alt="Card Image">
+                <div class="px-3 py-4">
+                    <div class="mb-2"><a href="" class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">Pengalaman Menyaksikan Langsung Party-nya Orang Palembang</a></div>
+                    <div class="flex flex-col md:flex-row mb-1 gap-2">
+                        <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                        <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                    </div>
+                </div>
+                <!-- Button "Baca Selengkapnya" yang berada di paling bawah -->
+                <div class="px-3 py-2 mt-auto">
+                    <a href="#"
+                       class="hidden md:block border mt-auto text-sm font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white">
+                        BACA SELENGKAPNYA
+                    </a>
+                </div>
+            </div>
+            <div class="max-w-sm overflow-hidden shadow-lg bg-white flex flex-col">
+                <img class="w-full h-25 object-contain aspect-square" src="../Dandadan.jpeg" alt="Card Image">
+                <div class="px-3 py-4">
+                    <div class="mb-2"><a href="" class="text-xs md:text-lg font-bold text-gray-800 hover:text-green-500 mb-3">Pengalaman Menyaksikan Langsung Party-nya Orang Palembang</a></div>
+                    <div class="flex flex-col md:flex-row mb-1 gap-2">
+                        <span class="text-xs text-green-500"><i class="fa-regular fa-user text-black"></i> Sazaraaa</span>
+                        <span class="text-xs"><i class="fa-regular fa-clock text-black"></i> 15 November 2024</span>
+                    </div>
+                </div>
+                <!-- Button "Baca Selengkapnya" yang berada di paling bawah -->
+                <div class="px-3 py-2 mt-auto">
+                    <a href="#"
+                       class="hidden md:block border mt-auto text-sm font-bold border-gray-300 text-black px-4 py-1 hover:bg-green-500 hover:text-white">
+                        BACA SELENGKAPNYA
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div id="pagination" class="flex lg:col-span-2 justify-center mt-6"></div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-8 mt-auto" id="footer-placeholder"></footer>
+
+    <script src="../src/js/loadComponents.js"></script>
+    <script src="app.js"></script> <!-- External JS for pagination and search logic -->
+  </body>
+</html>

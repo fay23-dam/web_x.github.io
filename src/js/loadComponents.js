@@ -9,6 +9,30 @@ async function loadNav() {
         console.error('Error loading navigation:', error);
     }
 }
+async function loadFooter() {
+    try {
+        // Mengambil footer.html dengan fetch API
+        const response = await fetch('../src/components/footer.html');
+
+        // Mengecek apakah respon berhasil
+        if (!response.ok) {
+            throw new Error('Failed to load footer HTML');
+        }
+
+        // Mendapatkan teks HTML dari respon
+        const html = await response.text();
+
+        // Memasukkan konten HTML ke dalam elemen dengan id 'footer-placeholder'
+        document.getElementById('footer-placeholder').innerHTML = html;
+    } catch (error) {
+        // Menangani jika ada error saat mengambil file
+        console.error('Error loading footer:', error);
+    }
+}
+
+// Memanggil fungsi loadFooter setelah halaman dimuat
+window.addEventListener('DOMContentLoaded', loadFooter);
+
 
 function initializeNav() {
     const hamburgerButton = document.getElementById('hamburger-button');
@@ -84,18 +108,32 @@ const paragraphs = document.querySelectorAll('.paragraph');
 paragraphs.forEach(paragraph => {
     truncateText(paragraph, 30);
 });
-const cardsPerPage = 4; // Jumlah card per halaman
-const cards = document.querySelectorAll('.bg-white.flex.flex-row'); // Ambil semua card
-const paginationContainer = document.getElementById('pagination');
-let currentPage = 1;
+const cards = document.querySelectorAll('.bg-white.flex.flex-row'); // cards pertama
+const cards1 = document.querySelectorAll('.max-w-sm.overflow-hidden.shadow-lg.bg-white.flex.flex-col'); // cards kedua
+let currentPageCards = 1; // Halaman saat ini untuk cards
+let currentPageCards1 = 1; // Halaman saat ini untuk cards1
 
-function renderPage(page) {
-  // Hitung indeks awal dan akhir untuk card pada halaman ini
+// Fungsi untuk memeriksa apakah kartu bisa ditampilkan pada halaman tertentu
+function isCardsPage() {
+  // Misalnya, periksa URL atau ID elemen untuk memastikan apakah halaman saat ini adalah cerpen, puisi, prosa, atau esai
+  const path = window.location.pathname;  // Dapatkan path URL halaman
+  return path.includes('cerpen') || path.includes('puisi') || path.includes('prosa') || path.includes('esai');
+}
+
+function isCards1Page() {
+  // Periksa apakah halaman saat ini adalah halaman koleksi
+  const path = window.location.pathname; // Dapatkan path URL halaman
+  return path.includes('koleksi');
+}
+
+// Fungsi untuk merender card pada halaman yang relevan
+function renderPage(page, cardGroup, currentPage) {
+  const cardsPerPage = 4; // Jumlah card per halaman
   const startIndex = (page - 1) * cardsPerPage;
   const endIndex = startIndex + cardsPerPage;
 
   // Tampilkan atau sembunyikan card sesuai halaman aktif
-  cards.forEach((card, index) => {
+  cardGroup.forEach((card, index) => {
     if (index >= startIndex && index < endIndex) {
       card.style.display = 'flex';
     } else {
@@ -103,16 +141,18 @@ function renderPage(page) {
     }
   });
 
-  // Perbarui tombol pagination
-  renderPagination();
+  renderPagination(cardGroup, currentPage); // Update pagination
 }
 
-function renderPagination() {
+// Fungsi untuk merender tombol pagination
+function renderPagination(cardGroup, currentPage) {
   paginationContainer.innerHTML = ''; // Kosongkan kontainer tombol
 
   // Hitung jumlah halaman
-  const totalPages = Math.ceil(cards.length / cardsPerPage);
+  const totalCards = cardGroup.length;
+  const totalPages = Math.ceil(totalCards / 4);
 
+  // Render tombol pagination
   for (let i = 1; i <= totalPages; i++) {
     const button = document.createElement('button');
     button.innerText = i;
@@ -123,11 +163,79 @@ function renderPagination() {
         : 'bg-white text-gray-700 border-gray-300');
     button.addEventListener('click', () => {
       currentPage = i;
-      renderPage(currentPage);
+      renderPage(i, cardGroup, currentPage);
     });
     paginationContainer.appendChild(button);
   }
 }
 
-// Render halaman pertama saat memuat
-renderPage(currentPage);
+// Fungsi pencarian card berdasarkan judul untuk cards
+function searchCards() {
+  const searchTerm = searchInput.value.toLowerCase(); // Ambil kata pencarian dari input
+
+  // Filter kartu yang sesuai dengan pencarian berdasarkan teks dalam tag <a> untuk cards
+  const filteredCards = [...cards].filter(card => {
+    const titleElement = card.querySelector('a'); // Ambil elemen <a> dalam card
+    const title = titleElement ? titleElement.textContent.toLowerCase() : ''; // Ambil teks dalam <a>
+    return title.includes(searchTerm); // Bandingkan dengan kata pencarian
+  });
+
+  // Sembunyikan semua card
+  cards.forEach(card => card.style.display = 'none');
+
+  // Tampilkan card yang sesuai
+  filteredCards.forEach(card => card.style.display = 'flex');
+
+  // Reset halaman ke halaman pertama setelah pencarian
+  currentPageCards = 1;
+  renderPagination(filteredCards, currentPageCards); // Update pagination
+  renderPage(currentPageCards, filteredCards, currentPageCards);
+}
+
+// Fungsi pencarian card berdasarkan judul untuk cards1
+function searchCards1() {
+  const searchTerm = searchInput.value.toLowerCase(); // Ambil kata pencarian dari input
+
+  // Filter kartu yang sesuai dengan pencarian berdasarkan teks dalam tag <a> untuk cards1
+  const filteredCards1 = [...cards1].filter(card => {
+    const titleElement = card.querySelector('a'); // Ambil elemen <a> dalam card
+    const title = titleElement ? titleElement.textContent.toLowerCase() : ''; // Ambil teks dalam <a>
+    return title.includes(searchTerm); // Bandingkan dengan kata pencarian
+  });
+
+  // Sembunyikan semua card
+  cards1.forEach(card => card.style.display = 'none');
+
+  // Tampilkan card yang sesuai
+  filteredCards1.forEach(card => card.style.display = 'flex');
+
+  // Reset halaman ke halaman pertama setelah pencarian
+  currentPageCards1 = 1;
+  renderPagination(filteredCards1, currentPageCards1); // Update pagination
+  renderPage(currentPageCards1, filteredCards1, currentPageCards1);
+}
+
+// Event listener untuk input pencarian
+const searchInput = document.getElementById('search-input');
+searchInput.addEventListener('input', () => {
+  if (isCardsPage()) {
+    searchCards();
+  }
+  if (isCards1Page()) {
+    searchCards1();
+  }
+});
+
+// Fungsi untuk merender halaman awal
+function renderInitialPages() {
+  if (isCardsPage()) {
+    renderPage(currentPageCards, cards, currentPageCards);
+  }
+  if (isCards1Page()) {
+    renderPage(currentPageCards1, cards1, currentPageCards1);
+  }
+}
+
+const paginationContainer = document.getElementById('pagination');
+renderInitialPages();
+
