@@ -239,3 +239,48 @@ function renderInitialPages() {
 const paginationContainer = document.getElementById('pagination');
 renderInitialPages();
 
+ClassicEditor.create(document.querySelector('.ckeditor'))
+.catch(error => {
+  console.error(error);
+});
+
+// Event listener untuk form submit
+const form = document.getElementById("comment-form");
+const commentList = document.getElementById("comment-list");
+
+form.addEventListener("submit", function (event) {
+event.preventDefault();
+
+// Ambil data form
+const name = form.name.value;
+const comment = form.comment.value;
+const image = form.image.files[0];
+
+// Buat elemen baru untuk komentar
+const commentElement = document.createElement("div");
+commentElement.classList.add("flex", "space-x-4");
+
+// Avatar
+commentElement.innerHTML = `
+  <div class="flex-shrink-0">
+    <img src="https://www.w3schools.com/w3images/avatar2.png" alt="User Avatar" class="w-12 h-12 rounded-full object-cover" />
+  </div>
+  <div class="flex-grow">
+    <p class="font-bold text-gray-800">${name}</p>
+    <p class="text-gray-600">${comment}</p>
+`;
+
+// Jika ada gambar yang diunggah
+if (image) {
+  const imageUrl = URL.createObjectURL(image);
+  commentElement.innerHTML += `<img src="${imageUrl}" alt="Uploaded Image" class="max-w-xs rounded-md mt-2" />`;
+}
+
+commentElement.innerHTML += "</div>";
+
+// Tambahkan komentar baru ke dalam daftar
+commentList.prepend(commentElement);
+
+// Reset form setelah submit
+form.reset();
+});
