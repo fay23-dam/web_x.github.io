@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RumahKata</title>
+    <title>SapuKata</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/5bb81927d8.js" crossorigin="anonymous"></script>
   </head>
@@ -12,8 +12,63 @@
     <div id="nav-placeholder"></div>
 
     <!-- Content -->
-    <main class="container mx-auto px-4 py-12 flex flex-col gap-12">
-        <div class="max-w-4xl mx-auto mt-10 bg-white p-8 shadow-md">
+    <main class="container mx-auto px-4 flex flex-col gap-8">
+        <div class="container mx-auto p-6">
+            <!-- Banner -->
+            <div class="flex flex-col lg:flex-row space-y-2 lg:justify-between items-center bg-gray-900 text-white p-4 cursor-pointer shadow-lg transition-all hover:shadow-xl" id="infoBanner">
+                <span class="text-xl font-semibold">Informasi Pengiriman Karya</span>
+                <div class="space-x-4">
+                <span class="bg-red-500 text-white py-1 px-4 text-sm">Harap Dibaca</span>
+                <i class="fas fa-arrow-down mr-2"></i>
+            </div>
+            </div>
+    
+            <!-- Penjelasan Detail -->
+            <div class="mt-6 bg-white p-6 rounded-lg shadow-lg hidden" id="infoDetails">
+                <p class="text-lg font-semibold text-gray-800">Silahkan mengirimkan karya terbaik teman-teman dengan mengikuti ketentuan pengiriman karya di bawah ini:</p>
+    
+                <h3 class="text-xl font-bold mt-4">Esai</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Panjang tulisan 250-700 kata.</li>
+                    <li>Esai merupakan karya orisinil dan belum pernah dipublikasikan di mana pun.</li>
+                    <li>Esai ditulis dan diketik dalam bahasa Indonesia dengan menggunakan font Times New Roman ukuran 12 pt, spasi 1.5, margin normal, dan rata kanan-kiri (justify).</li>
+                    <li>Boleh menyertakan foto/ilustrasi jika ada.</li>
+                    <li>Esai dikirim dalam bentuk dokumen format docx. File disimpan berdasarkan jenis karya, nama penulis, dan judul tulisan; contoh: Esai_Armitha_Wajah Papua dalam Festival Literasi</li>
+                    <li>Bagi karyanya yang berhasil dimuat di sapukata.co mendapat honorarium sebesar Rp.30.000 -Rp.50.000,-.</li>
+                </ul>
+    
+                <h3 class="text-xl font-bold mt-4">Prosa</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Panjang tulisan tidak lebih dari 250 kata.</li>
+                    <li>Prosa merupakan karya orisinil dan belum pernah dipublikasikan di mana pun.</li>
+                    <li>Prosa ditulis dan diketik dalam bahasa Indonesia dengan menggunakan font Times New Roman ukuran 12 pt, spasi 1.5, margin normal, dan rata kanan-kiri (justify).</li>
+                    <li>Boleh menyertakan gambar/ilustrasi jika ada.</li>
+                    <li>Prosa dikirim dalam bentuk dokumen format docx. File disimpan berdasarkan jenis karya, nama penulis, dan judul tulisan; contoh: Prosa_Armitha_Cerita untuk Nilam</li>
+                    <li>Bagi karyanya yang berhasil dimuat di sapukata.co mendapat honorarium sebesar Rp.30.000 -Rp.50.000,-.</li>
+                </ul>
+    
+                <h3 class="text-xl font-bold mt-4">Cerpen</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Panjang tulisan 1000 - 2500 kata.</li>
+                    <li>Cerpen merupakan karya orisinil dan belum pernah dipublikasikan di mana pun.</li>
+                    <li>Cerpen ditulis dan diketik dalam bahasa Indonesia dengan menggunakan font Times New Roman ukuran 12 pt, spasi 1.5, margin normal, dan rata kanan-kiri (justify).</li>
+                    <li>Boleh menyertakan gambar/ilustrasi jika ada.</li>
+                    <li>Cerpen dikirim dalam bentuk dokumen format docx. File disimpan berdasarkan jenis karya, nama penulis, dan judul tulisan; contoh: Cerpen_Armitha_Kelinci Buruk Rupa</li>
+                    <li>Bagi karyanya yang berhasil dimuat di sapukata.co mendapat honorarium sebesar Rp.30.000 -Rp.50.000,-.</li>
+                </ul>
+    
+                <h3 class="text-xl font-bold mt-4">Puisi</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Panjang puisi maksimal 8 bait, bukan baris.</li>
+                    <li>Puisi merupakan karya orisinil dan belum pernah dipublikasikan di mana pun.</li>
+                    <li>Puisi ditulis dalam bentuk bait, bukan paragraf.</li>
+                    <li>Puisi ditulis dan diketik dalam bahasa Indonesia dengan menggunakan font Times New Roman ukuran 12 pt, spasi 1.5, dan margin normal.</li>
+                    <li>Puisi dikirim dalam bentuk dokumen format docx. File disimpan berdasarkan jenis karya, nama penulis, dan judul tulisan; contoh: Puisi_Armitha_Sang Penakluk Rasa</li>
+                    <li>Bagi karyanya yang berhasil dimuat di sapukata.co mendapat honorarium sebesar Rp.30.000 -Rp.50.000,-.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container max-w-2xl mx-auto mt-2 bg-white p-8 shadow-md">
             <h1 class="text-3xl font-bold text-center text-gray-700 mb-6">Form Pengiriman</h1>
     
             <form action="#" method="POST" enctype="multipart/form-data">
@@ -32,15 +87,15 @@
     
                 <!-- Judul -->
                 <div class="mb-4">
-                    <label for="judul" class="block text-sm font-medium text-gray-700">Judul Naskah</label>
-                    <input type="text" id="judul" name="judul" required class="mt-1 px-4 py-2 w-full border border-gray-300  focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Masukkan Judul Naskah">
+                    <label for="judul" class="block text-sm font-medium text-gray-700">Judul karya</label>
+                    <input type="text" id="judul" name="judul" required class="mt-1 px-4 py-2 w-full border border-gray-300  focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Masukkan Judul karya">
                 </div>
     
-                <!-- Jenis Naskah (Dropdown) -->
+                <!-- Jenis karya (Dropdown) -->
                 <div class="mb-4">
-                    <label for="jenis" class="block text-sm font-medium text-gray-700">Jenis Naskah</label>
+                    <label for="jenis" class="block text-sm font-medium text-gray-700">Jenis karya</label>
                     <select id="jenis" name="jenis" required class="mt-1 px-4 py-2 w-full border border-gray-300  focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <option value="">Pilih Jenis Naskah</option>
+                        <option value="">Pilih Jenis karya</option>
                         <option value="cerpen">Cerpen</option>
                         <option value="puisi">Puisi</option>
                         <option value="esai">Esai</option>
@@ -48,16 +103,26 @@
                     </select>
                 </div>
     
-                <!-- Naskah (Input File) -->
+                <!-- karya (Input File) -->
                 <div class="mb-4">
-                    <label for="naskah" class="block text-sm font-medium text-gray-700">Unggah Naskah</label>
-                    <input type="file" id="naskah" name="naskah" required class="mt-1 px-4 py-2 w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500" accept=".pdf,.docx,.txt">
+                    <label for="karya" class="flex justify-between  text-sm font-medium text-gray-700">Unggah karya <p class="text-xs text-green-500 mt-1">(.docx  .pdf  .txt)</p></label>
+                    <div class="relative mt-1">
+                        <input type="file" id="karya" name="karya" required class="hidden" accept=".pdf,.docx,.txt">
+                        <label for="karya" class="flex items-center justify-center py-2 px-4 w-full border border-gray-300 bg-white text-gray-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <i class="fas fa-upload mr-2"></i> Unggah File
+                        </label>
+                    </div>
                 </div>
     
                 <!-- Ilustrasi atau Gambar (Input File) -->
                 <div class="mb-4">
-                    <label for="ilustrasi" class="block text-sm font-medium text-gray-700">Unggah Ilustrasi/Gambar</label>
-                    <input type="file" id="ilustrasi" name="ilustrasi" class="mt-1 px-4 py-2 w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500" accept="image/*">
+                    <label for="ilustrasi" class="flex justify-between text-sm mb-2 font-medium text-gray-700">Unggah Ilustrasi/Gambar  <p class="text-xs text-red-500 mt-1">(opsional)</p></label>
+                    <div class="relative mt-1">
+                        <input type="file" id="ilustrasi" name="ilustrasi" class="hidden" accept="image/*">
+                        <label for="ilustrasi" class="flex items-center justify-center py-2 px-4 w-full border border-gray-300 bg-white text-gray-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <i class="fas fa-upload mr-2"></i> Unggah Gambar
+                        </label>
+                    </div>
                 </div>
     
                 <!-- Submit Button -->
@@ -69,12 +134,19 @@
             </form>
         </div>
     
-        
     </main>
 
     <!-- Footer -->
     <footer class="bg-slate-950 text-white py-8 mt-auto" id="footer-placeholder"></footer>
+    <script>
+        // Event listener untuk menampilkan info-details saat banner diklik
+        const infoBanner = document.getElementById('infoBanner');
+        const infoDetails = document.getElementById('infoDetails');
 
+        infoBanner.addEventListener('click', () => {
+            infoDetails.style.display = infoDetails.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
     <script src="../src/js/loadComponents.js"></script>
   </body>
 </html>

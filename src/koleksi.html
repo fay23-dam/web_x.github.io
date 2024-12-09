@@ -13,15 +13,19 @@
 
     <!-- Content -->
     <main class="container mx-auto px-4 py-12 flex flex-col gap-12">
+        <article class="w-full lg:w-3/3 bg-white p-6 shadow-md">
         <div class="grid lg:grid-cols-12 grid-cols-1 gap-4">
             <h2 class="col-span-8 lg:col-span-8 lg:me-5 text-lg text-white font-bold divide-y-2 divide-green-400 mb-5">
               <span class="bg-green-500 p-2">Koleksi</span>
               <div class="divider"></div>
             </h2>
-            <div class="mb-2 col-span-8 lg:col-span-4">
+            <div class="mb-6 col-span-8 lg:col-span-4">
               <input type="text" id="search-input" class="px-4 py-2 w-full border text-sm" placeholder="Cari judul..." oninput="searchCards()" />
           </div>
           </div>
+          <p class="text-lg text-gray-700 leading-relaxed mb-6 font-bold text-justify">
+            Tulisan kreatif yang mengandung cerita dan penuh pesan moral.
+          </p>
         <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">        
             <div class="max-w-sm overflow-hidden shadow-lg bg-white flex flex-col">
                 <img class="w-full h-25 object-center aspect-square" src="../453603451_466207632850320_6052156421435376112_n.jpg" alt="Card Image">
@@ -111,7 +115,7 @@
             </div>
         </section>
         <div id="pagination" class="flex lg:col-span-2 justify-center mt-6"></div>
-        
+    </article>
     </main>
 
     <!-- Footer -->

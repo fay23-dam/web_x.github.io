@@ -1,7 +1,7 @@
 // Navigation functions
 async function loadNav() {
     try {
-        const response = await fetch('../src/components/nav.html');
+        const response = await fetch('../../src/components/nav.html');
         const html = await response.text();
         document.getElementById('nav-placeholder').innerHTML = html;
         initializeNav();
@@ -12,7 +12,7 @@ async function loadNav() {
 async function loadFooter() {
     try {
         // Mengambil footer.html dengan fetch API
-        const response = await fetch('../src/components/footer.html');
+        const response = await fetch('../../src/components/footer.html');
 
         // Mengecek apakah respon berhasil
         if (!response.ok) {
