@@ -89,33 +89,45 @@
       <!-- Komentar Section -->
       <section class="mt-6 lg:col-span-8 col-auto shadow-md p-8 bg-white">
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Komentar</h2>
-
+    
         <!-- Form untuk mengirim komentar -->
         <form id="comment-form" action="#" method="POST" enctype="multipart/form-data">
-          <div class="space-y-4">
-            <!-- Nama Pengguna -->
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700">Nama Anda</label>
-              <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 shadow-sm" required />
+            <div class="space-y-4">
+                <!-- Nama Pengguna -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nama Anda</label>
+                    <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 shadow-sm" required />
+                </div>
+    
+                <!-- Komentar (Quill) -->
+                <div>
+                    <label for="comment" class="block text-sm font-medium text-gray-700">Ulasan Anda</label>
+                    <div id="editor" class="mt-2 border border-gray-300 rounded-md p-4"></div>
+                </div>
+    
+                <!-- Tombol Kirim -->
+                <div class="mt-4">
+                    <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 w-full sm:w-auto">Kirim Ulasan</button>
+                </div>
             </div>
-
-            <!-- Komentar (Quill) -->
-            <div>
-              <label for="comment" class="block text-sm font-medium text-gray-700">Komentar Anda</label>
-              <div id="editor" class="mt-2 border border-gray-300 rounded-md p-4"></div>
-            </div>
-
-            <!-- Tombol Kirim -->
-            <div class="mt-4">
-              <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 w-full sm:w-auto">Kirim Komentar</button>
-            </div>
-          </div>
         </form>
-      </section>
+    </section>
+    
+    <!-- Daftar Ulasan -->
+    <section id="comments-section" class="mt-6 lg:col-span-8 col-auto shadow-md p-8 bg-white">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Ulasan Pengguna</h2>
+    
+        <div id="comments-list" class="space-y-4">
+            <!-- Komentar-komentar akan muncul di sini -->
+        </div>
+    </section>
+    
+    
+    
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-white py-8 mt-auto" id="footer-placeholder"></footer>
+    <footer class="bg-slate-950 mt-auto text-white py-12 px-6" id="footer-placeholder"></footer>
 
     <script src="../src/js/loadComponents.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
@@ -126,5 +138,6 @@
         theme: 'snow'
       });
     </script>
+    
   </body>
 </html>
